@@ -22,7 +22,8 @@
 (defn create-message [to message-body]
   (doto (Message.)
     (.setTo to)
-    (.setBody (str message-body))))
+    (.setBody (str message-body))
+    (.setType Message$Type/chat)))
 
 (defn send-message [conn to message-body]
   (.sendPacket conn (create-message to message-body)))
